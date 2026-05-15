@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Rail</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="control-rail-root" class="control-rail-root theme-light" aria-live="polite">
+    <div class="control-rail-shell">
+      <div class="control-rail-left-group">
+        <div class="control-brand" aria-label="AgentShell">
+          <img
+            class="control-brand-logo"
+            src="assets/agent_shell_notext.png"
+            alt=""
+            aria-hidden="true"
+          />
+          <span class="control-brand-title">AgentShell</span>
+        </div>
+
+        <label class="control-select-shell" for="workspace-app-select">
+          <span class="control-select-label">Workspace</span>
+          <select
+            id="workspace-app-select"
+            class="control-select"
+            aria-label="Choose workspace"
+            title="Choose workspace"
+          ></select>
+        </label>
+
+        <label class="control-select-shell" for="model-select">
+          <span class="control-select-label">Model</span>
+          <select
+            id="model-select"
+            class="control-select"
+            aria-label="Choose model"
+            title="Choose model"
+          ></select>
+        </label>
+      </div>
+
+      <div class="control-rail-right-group">
+        <button
+          id="theme-toggle-button"
+          class="control-bubble"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          <span
+            id="theme-toggle-icon"
+            class="control-bubble-symbol control-bubble-symbol-theme"
+            aria-hidden="true"
+          ></span>
+        </button>
+
+        <button
+          id="planning-toggle-button"
+          class="control-bubble control-bubble-mode"
+          type="button"
+          aria-label="Toggle planning"
+          title="Toggle planning"
+        >
+          <span class="control-bubble-symbol control-bubble-symbol-planning" aria-hidden="true"></span>
+        </button>
+
+        <button
+          id="reflection-toggle-button"
+          class="control-bubble control-bubble-mode"
+          type="button"
+          aria-label="Toggle reflection"
+          title="Toggle reflection"
+        >
+          <span class="control-bubble-symbol control-bubble-symbol-reflection" aria-hidden="true"></span>
+        </button>
+
+        <button
+          id="assistant-toggle-button"
+          class="control-bubble control-bubble-assistant"
+          type="button"
+          aria-label="Toggle assistant"
+          title="Toggle assistant"
+        >
+          <span
+            id="assistant-toggle-icon"
+            class="control-bubble-symbol control-bubble-symbol-chat"
+            aria-hidden="true"
+          ></span>
+          <span id="assistant-toggle-pulse" class="control-bubble-pulse"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

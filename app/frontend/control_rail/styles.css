@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+}
+
+.control-rail-root.theme-dark {
+  --bg: #0b0f19;
+  --card: #111827;
+  --surface: #161e2e;
+  --border: rgba(56, 189, 248, 0.08);
+  --border-glow: rgba(56, 189, 248, 0.25);
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+  --brand-title: #7dd3fc;
+}
+
+.control-rail-root.theme-light {
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --surface: #eef2f7;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-glow: rgba(14, 116, 144, 0.2);
+  --text: #0f172a;
+  --muted: #64748b;
+  --brand-title: #0e7490;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-family: var(--font-body);
+}
+
+body {
+  color: var(--text);
+}
+
+.control-rail-root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background: transparent;
+}
+
+.control-rail-shell {
+  position: relative;
+  left: 24px;
+  right: 24px;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  pointer-events: auto;
+  width: 100%;
+  padding: 12px 24px 16px;
+}
+
+.control-rail-left-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.control-rail-right-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.control-brand {
+  height: 64px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px 0 0;
+  color: var(--text);
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.control-brand-logo {
+  width: 58px;
+  height: 58px;
+  display: block;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.control-brand-title {
+  font-family: 'Times New Roman', Times, Georgia, serif;
+  font-size: 2.03rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--brand-title);
+  white-space: nowrap;
+}
+
+.control-bubble {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--card) 0%, var(--surface) 100%);
+  color: var(--text);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  cursor: pointer;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+  backdrop-filter: blur(10px);
+  padding: 0;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.control-bubble:hover {
+  border-color: var(--border-glow);
+  transform: translateY(-2px) scale(1.02);
+  background: var(--surface);
+}
+
+.control-bubble.active {
+  border-color: var(--border-glow);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18) 0%, var(--surface) 100%);
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.12);
+}
+
+.control-bubble:focus {
+  outline: none;
+  border-color: var(--border-glow);
+}
+
+.control-bubble-icon {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+
+.control-bubble-symbol {
+  display: block;
+  width: 38px;
+  height: 38px;
+  background-color: currentColor;
+  color: inherit;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+.control-bubble-symbol-theme {
+  mask-image: url("assets/theme.svg");
+  -webkit-mask-image: url("assets/theme.svg");
+}
+
+.control-bubble-symbol-planning {
+  mask-image: url("assets/planning.svg");
+  -webkit-mask-image: url("assets/planning.svg");
+}
+
+.control-bubble-symbol-reflection {
+  mask-image: url("assets/reflection.svg");
+  -webkit-mask-image: url("assets/reflection.svg");
+}
+
+.control-bubble-symbol-chat {
+  mask-image: url("assets/chat.svg");
+  -webkit-mask-image: url("assets/chat.svg");
+}
+
+.control-bubble-pulse {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  right: 8px;
+  bottom: 8px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 1);
+  box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.35);
+  animation: controlBubblePulse 2.2s infinite;
+}
+
+@keyframes controlBubblePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(56, 189, 248, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+  }
+}
+
+.control-bubble-label {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.control-select-shell {
+  min-width: 220px;
+  max-width: 320px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--card) 0%, var(--surface) 100%);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.72rem 1rem 0.72rem 1.15rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+  flex: 0 1 260px;
+}
+
+.control-select-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.control-select {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  min-width: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.control-select:focus {
+  outline: none;
+}
+
+.control-select:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+
+@media (max-width: 900px) {
+  .control-brand-title {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .control-rail-shell {
+    padding: 10px 12px 14px;
+    gap: 10px;
+  }
+
+  .control-rail-left-group {
+    gap: 8px;
+  }
+
+  .control-rail-right-group {
+    gap: 8px;
+  }
+
+  .control-brand {
+    height: 58px;
+    gap: 0;
+    padding-right: 0;
+  }
+
+  .control-brand-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .control-brand-title {
+    display: none;
+  }
+
+  .control-bubble {
+    width: 58px;
+    height: 58px;
+  }
+
+  .control-bubble-symbol {
+    width: 35px;
+    height: 35px;
+  }
+
+  .control-bubble-pulse {
+    width: 10px;
+    height: 10px;
+    right: 7px;
+    bottom: 7px;
+  }
+
+  .control-bubble-label {
+    font-size: 0.58rem;
+  }
+
+  .control-select-shell {
+    min-width: 150px;
+    max-width: 200px;
+    gap: 8px;
+    padding: 0.62rem 0.85rem 0.62rem 0.95rem;
+    flex-basis: 170px;
+  }
+
+  .control-select-label {
+    display: none;
+  }
+
+  .control-select {
+    font-size: 0.84rem;
+  }
+}

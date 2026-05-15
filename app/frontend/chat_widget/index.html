@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Chat Widget</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="chat-root" class="chat-root theme-light mode-full launcher-internal">
+    <div id="floating-shell" class="floating-shell" aria-hidden="true">
+      <div id="floating-launcher-shell" class="floating-launcher-shell" aria-hidden="false">
+        <button
+          id="floating-launcher"
+          class="floating-launcher"
+          type="button"
+          aria-label="Open assistant"
+          aria-expanded="false"
+        >
+          <span class="floating-launcher-icon">AI</span>
+          <span class="floating-launcher-pulse"></span>
+        </button>
+      </div>
+
+      <section id="floating-popup" class="floating-popup floating-popup-external" aria-hidden="true">
+        <div class="floating-popup-header">
+          <div class="floating-popup-copy">
+            <div class="floating-popup-title">Assistant</div>
+            <div class="floating-popup-subtitle">Context-aware, tool-enabled chat</div>
+          </div>
+          <button
+            id="floating-close"
+            class="floating-close"
+            type="button"
+            aria-label="Close assistant"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="floating-popup-body">
+          <div id="messages" class="messages" aria-live="polite" aria-label="Chat messages"></div>
+
+          <form id="chat-form" class="input-shell" autocomplete="off">
+            <textarea
+              id="message-input"
+              class="message-input"
+              rows="1"
+              placeholder="Ask the assistant something..."
+              aria-label="Message input"
+            ></textarea>
+            <button id="send-button" class="send-button" type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <section id="full-chat-shell" class="full-chat-shell" aria-hidden="false">
+      <div id="full-chat-header" class="full-chat-header" aria-hidden="true">
+        <div class="full-chat-copy">
+          <div id="full-chat-title" class="full-chat-title"></div>
+          <div id="full-chat-subtitle" class="full-chat-subtitle"></div>
+        </div>
+      </div>
+      <div id="full-messages" class="messages" aria-live="polite" aria-label="Chat messages"></div>
+
+      <form id="full-chat-form" class="input-shell" autocomplete="off">
+        <textarea
+          id="full-message-input"
+          class="message-input"
+          rows="1"
+          placeholder="Ask the assistant something..."
+          aria-label="Message input"
+        ></textarea>
+        <button id="full-send-button" class="send-button" type="submit">Send</button>
+      </form>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

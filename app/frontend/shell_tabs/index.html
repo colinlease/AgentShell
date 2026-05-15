@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgentShell Shell Tabs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell-tabs-root" data-shell-tabs-root data-theme-name="light">
+    <div class="shell-tabs-track" data-shell-tabs-track>
+      <!-- Tabs are injected by script.js -->
+    </div>
+  </div>
+
+  <script>
+    window.SHELL_TABS_CONFIG = {
+      tabs: [],
+      activeTab: "",
+      themeName: "light",
+    };
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
