@@ -69,6 +69,19 @@ streamlit run run_ml_workbench.py
 - [`agents/tools/`] contains framework-level tools. The active workspace app can add its own tools through `get_tools()`.
 - [`domain/services/`] contains shared data and visualization services used by the tool layer.
 
+## Runtime-generated data
+
+AgentShell creates some local working directories as it runs. These are not required to be committed to the repository and are typically excluded from source control.
+
+Common runtime-generated folders include:
+
+- `logs/` for run logs and performance summaries
+- `runtime/` for local app state such as Local Knowledge indexes
+- `runtime_notes/` for reflection-generated heuristic notes
+
+If these folders do not exist yet, AgentShell will create them as needed during normal use. A fresh clone can therefore start with just the source files, and each user can build up their own local runtime data over time.
+
+
 ## Integration
 
 If you want to mount a new app in AgentShell:
