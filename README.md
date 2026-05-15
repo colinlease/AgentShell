@@ -17,24 +17,35 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Create a `.env` file . `config/settings.py` reads local environment values directly. The required values are:
+Create a `.env` file. `config/settings.py` reads local environment values directly.
 
-// Default Provider
-PROVIDER_NAME=deepseek 
-// OpenAI API Key
+The required values are:
+
+```env
+# Default Provider
+PROVIDER_NAME=deepseek
+
+# OpenAI API Key
 OPENAI_API_KEY="YOUR KEY HERE"
-// OpenAI Default Model
+
+# OpenAI Default Model
 OPENAI_MODEL=gpt-4.1-mini
-// Genimi API Key
+
+# Gemini API Key
 GEMINI_API_KEY="YOUR KEY HERE"
-//Gemini Default Model
+
+# Gemini Default Model
 GEMINI_MODEL=gemini-2.5-flash
-// Deepseek API Key
+
+# DeepSeek API Key
 DEEPSEEK_API_KEY="YOUR KEY HERE"
-// Deepseek Default Model
+
+# DeepSeek Default Model
 DEEPSEEK_MODEL=deepseek-chat
-// App name - do not change
-APP_NAME=AgentShell 
+
+# App name - do not change
+APP_NAME=AgentShell
+```
 
 Then start the shell:
 
