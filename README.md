@@ -84,7 +84,7 @@ If these folders do not exist yet, AgentShell will create them as needed during 
 
 ## Integration
 
-If you want to mount a new app in AgentShell:
+To mount a new app in AgentShell:
 
 1. Implement the `BaseWorkspaceApp` contract in [`app/workspace_apps/base.py`].
 2. Register the app in [`app/workspace_apps/bootstrap.py`].
