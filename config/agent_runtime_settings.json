@@ -1,0 +1,17 @@
+{
+  "budget_overrides": {
+    "execution_provider_turns": 17,
+    "note_writes": 2,
+    "reflection_model_calls": 5,
+    "reflection_tool_calls": 4
+  },
+  "features": {
+    "compaction_enabled": true,
+    "planning_enabled": true,
+    "reflection_enabled": false
+  },
+  "gates": {
+    "reflection_tool_use_threshold": 6
+  },
+  "version": 1
+}
