@@ -2,7 +2,7 @@
 
 This guide is for people who have already launched AgentShell and want to understand the main UI, the assistant controls, and the runtime/debug surfaces that are available today.
 
-It is intentionally practical rather than exhaustive. Everything here is grounded in the current codebase.
+It is intentionally practical rather than exhaustive. 
 
 ## What You See When The App Starts
 
