@@ -9,6 +9,8 @@ At runtime, the shell mounts one active workspace app and lets the agent reason 
 - `Personal GL`
 - `Local Knowledge`
 
+This repo is designed so that it is as straightforward as possible to mount a wide range of your own personal data applications.
+
 ## Run It
 
 Install dependencies:
