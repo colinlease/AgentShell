@@ -132,7 +132,7 @@ Planning adds a hidden pre-execution phase before the visible assistant run.
 
 In the current runtime:
 
-- triage decides whether planning should be skipped, light, or deep
+- a triage agent decides whether planning should be skipped, light, or deep
 - light planning adds a plan before execution
 - deep planning adds both planning and critique before execution
 - critique is not a separate toggle
@@ -141,7 +141,7 @@ Planning does not execute normal app, data, or UI tools during the planning phas
 
 #### What Reflection Does
 
-Reflection adds a hidden post-run phase that can update runtime notes.
+Reflection adds a hidden post-run phase that can update runtime notes so that the assitant can learn your preferences over time and avoid repeating the same mistakes.
 
 In the current runtime:
 
@@ -156,6 +156,8 @@ In the current runtime:
 Context compaction summarizes older chat history into a hidden summary once thresholds are reached, while keeping a smaller set of recent raw messages.
 
 The `Compacted Context Summary` panel in the `Agent` subtab shows the current hidden summary when compaction has already run in this session.
+
+Context compaction is designed to save money on tokens by preserving important context while managing the volume of tokens being passed to the LLM.
 
 ### Runtime Limits And Gates
 
@@ -217,6 +219,7 @@ Important:
 
 - runtime notes are heuristic reminders, not source-of-truth data
 - the Notes subtab is a summary/debug view, not a full note editor
+- notes are owned by the agent, not the user. You may review notes .json files directly in the `runtime_notes` folder. 
 
 ### Trace
 
@@ -269,7 +272,7 @@ Runtime notes are stored under the project root in:
 - `runtime_notes/general.json`
 - `runtime_notes/apps/<app_id>.json`
 
-That folder is file-backed and is created as note files are written. If reflection has not created any notes yet, you may not see much there.
+That folder is file-backed and is created as note files are written. If reflection has not created any notes yet, no files will exist.
 
 The runtime note store is not intended to override current app state, current tool outputs, or explicit user instructions. It is a heuristic memory layer for future runs.
 
@@ -291,12 +294,6 @@ How to use them:
 
 The raw run records include compact runtime, outcome, orchestration, trace, and tool summaries. The summary files roll those into counts and rates.
 
-Some workspace apps may also expose their own logs UI. In the current repo, `Personal GL` includes a `Logs` tab inside the workspace with:
-
-- an optional date-range filter
-- an event-type filter
-- a max-events selector
-
 ## Performance, Cost, And Speed Tradeoffs
 
 The shell gives you a few real levers here.
@@ -310,7 +307,7 @@ In general:
 - smaller/faster models usually reduce latency and spend
 - larger/stronger models usually help with harder multi-step tasks
 
-The code does not encode provider pricing, so choose based on your own provider account and tolerance for latency.
+The code does not encode provider pricing, so choose based on your own provider account and tolerance for latency. Of the included providers, Deepseek is the most cost effective.
 
 ### Planning
 
@@ -347,7 +344,7 @@ The most important execution knobs are:
 - `Provider Turns`
 - `Tool Calls`
 
-Raise them for harder tasks. Lower them if you want shorter, cheaper runs.
+Raise them for harder tasks. Lower them if you want shorter, cheaper runs. The tool use budget is injected into the agent's runtime context.
 
 ### Context Compaction
 
@@ -366,5 +363,3 @@ If you just want to get started:
 5. Turn on `Planning` for harder tasks.
 6. Turn on `Reflection` only when you want runtime-note learning and extra post-run diagnostics.
 7. Use `Trace` for one-run debugging and `Performance` for trend monitoring.
-
-That is enough to start using the shell productively without touching every advanced setting on day one.
