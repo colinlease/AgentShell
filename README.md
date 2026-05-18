@@ -2,7 +2,7 @@
 
 AgentShell is a Streamlit-based harness for hosting domain-specific user apps with an embedded agent runtime. The shell provides the shared structure around an app: workspace mounting, chat/assistant UI, model-provider selection, tool registration, and optional orchestration features such as planning, reflection, and compaction.
 
-At runtime, the shell mounts one active workspace app and lets the agent reason over that app's published UI state, data context, dataset objects, and app-specific tools. In this repo, the registered workspace apps are:
+At runtime, the shell mounts one active workspace app and lets the agent reason over that app's published UI state, data context, dataset objects, app-specific tools, and a comprehensive set of general data & UI tools. In this repo, the registered workspace apps are:
 
 - `Demo App` (default)
 - `ML Workbench`
