@@ -4,9 +4,7 @@
 
 AgentShell is a lightweight framework for adding agentic AI capabilities to domain-specific applications.
 
-Most AI agent examples focus on personal productivity: answering email, booking travel, managing calendars, or handling everyday tasks. Those use cases are useful, but I built AgentShell around a different idea: some of the biggest gains from AI will come from helping organizations improve specialized business workflows.
-
-As AI-assisted coding makes it easier to build smaller, purpose-built applications, organizations may rely less on one massive software platform and more on suites of internal tools built around specific processes. The challenge is that each of those tools should not need its own custom agent implementation, chat interface, provider logic, debugging tools, and context-management system.
+As AI-assisted coding makes it easier to build smaller, purpose-built applications, organizations may rely less on massive software platforms and more on suites of internal tools built around specific processes. The challenge is that each of those tools should not need its own custom agent implementation, chat interface, provider logic, debugging tools, and context-management system.
 
 AgentShell is designed to solve that problem.
 
