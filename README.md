@@ -1,5 +1,23 @@
 # AgentShell
 
+## Introduction
+
+AgentShell is a lightweight framework for adding agentic AI capabilities to domain-specific applications.
+
+Most AI agent examples focus on personal productivity: answering email, booking travel, managing calendars, or handling everyday tasks. Those use cases are useful, but I built AgentShell around a different idea: some of the biggest gains from AI will come from helping organizations improve specialized business workflows.
+
+As AI-assisted coding makes it easier to build smaller, purpose-built applications, organizations may rely less on one massive software platform and more on suites of internal tools built around specific processes. The challenge is that each of those tools should not need its own custom agent implementation, chat interface, provider logic, debugging tools, and context-management system.
+
+AgentShell is designed to solve that problem.
+
+It provides a shared agentic layer that can sit across multiple domain-specific applications. Each app can expose its data, state, and available actions through a consistent contract, while AgentShell provides the plumbing for a reusable agent workflow.
+
+In simple terms: instead of rebuilding the “AI assistant” layer for every internal app, AgentShell lets an organization build that layer once and reuse it across many apps.
+
+The broader idea is that useful business agents need access to real, structured, deterministic information from the systems they are working on. LLMs are probabilistic; they generate answers based on context and reasoning. AgentShell helps bridge those two worlds by giving the agent reliable application context, data access, and tools, so the model only has to reason about the part of the problem that actually requires judgment.
+
+## ReadMe
+
 AgentShell is a Streamlit-based harness for hosting domain-specific user apps with an embedded agent runtime. The shell provides the shared structure around an app: workspace mounting, chat/assistant UI, model-provider selection, tool registration, and optional orchestration features such as planning, reflection, and compaction.
 
 At runtime, the shell mounts one active workspace app and lets the agent reason over that app's published UI state, data context, dataset objects, app-specific tools, and a comprehensive set of general data & UI tools. In this repo, the registered workspace apps are:
